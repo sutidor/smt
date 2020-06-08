@@ -616,7 +616,6 @@ class Followmode_competitor_followers extends ManagerState { // Needs to be in c
           this.log.info(`Not following '${username}', marking as defollowed.`)
           this.dbUpdateStatus(username, 'defollowed')
           this.emit(this.STATE_EVENTS.CHANGE_STATUS, this.STATE.OK)
-          this.currentCycleActionCount += 1
           this.errorCount -= 1
           return true
         } catch (err2) { // Ingen followknapp
@@ -842,7 +841,7 @@ class Followmode_competitor_followers extends ManagerState { // Needs to be in c
       const randDailyFollowTarget = this.getRandomDailyFollowsTarget()
       cycleCount += 1
       if (ssm() > this.startDay && ssm() < this.endDay && dailyActionCount < randDailyFollowTarget) {
-        this.log.info(`Start ${(fdfCases[String(followDefollowCycle)])} cycle #${cycleCount} EC: ${this.errorCount} followers cache: ${this.cacheCompetitorFollowers.length}, cycle actions ${this.currentCycleActionCount} / ${cycleActionCount}, daily actions: ${(dailyActionCount + this.currentCycleActionCount)} / ${this.dailyFollows}`)
+        this.log.info(`Start ${(fdfCases[String(followDefollowCycle)])} cycle #${cycleCount} EC: ${this.errorCount} followers cache: ${this.cacheCompetitorFollowers.length}, cycle actions ${this.currentCycleActionCount} / ${randDailyFollowTarget}, daily actions: ${(dailyActionCount + this.currentCycleActionCount)} / ${this.dailyFollows}`)
         this.log.debug(` - cycle: f=${this.cycleFollows} df=${this.cycleDefollows} total: f=${this.totalFollows} df=${this.totalDefollows}`)
         // refill cache
         let refillLoopCount = 0
