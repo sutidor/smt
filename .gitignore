@@ -39,6 +39,7 @@ proguard/
 
 # Logs and databases #
 ######################
+logs
 logs/*.log
 logs/screenshots/*.png
 logs/screenshots/*.jpg

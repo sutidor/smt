@@ -60,7 +60,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run lint && npm run contributors-generate"
+			"pre-commit_": ""
 		}
 	},
 	"keywords": [
@@ -85,10 +85,10 @@
 		"node": ">=10.0.0"
 	},
 	"dependencies": {
-		"puppeteer": "latest",
-		"compare-versions": "latest",
 		"colors": "latest",
+		"compare-versions": "latest",
 		"path": "latest",
+		"puppeteer": "latest",
 		"request": "latest",
 		"sqlite3": "latest"
 	},
@@ -112,7 +112,8 @@
 		"jest": "latest",
 		"husky": "latest",
 		"yargs": "latest",
-		"markserv": "latest"
+		"markserv": "latest",
+		"standard": "^14.3.4"
 	},
 	"contributors": [
 		"Massimo [@maXfer75] <maxfer75@hotmail.com> (https://instagram.com/maXfer75)",
