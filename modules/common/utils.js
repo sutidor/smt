@@ -65,7 +65,7 @@ class Utils {
 				if (version !== json.master.version) {
 					log.warning(`Bot release v${json.master.version} available! Current version: v${version}`);
 				} else {
-					log.info("Bot is updated! :D");
+					log.debug("Bot is updated! :D");
 				}
 			}
 		});
@@ -88,7 +88,7 @@ class Utils {
 					self.log.error(`${name} don't created: ${err}`);
 					reject_write(err);
 				} else {
-					self.log.info(`${name} created`);
+					self.log.debug(`${name} created`);
 				}
 				resolve_write(true);
 			});
@@ -100,7 +100,7 @@ class Utils {
 		return new Promise(function (resolve_exists) {
 			self.fs.open(path, "wx", function (exists) {
 				if (exists && exists.code === "EEXIST") {
-					self.log.info(`${name} exist`);
+					self.log.debug(`${name} exist`);
 					resolve_exists("exist");
 				} else {
 					resolve_exists("create");
@@ -128,6 +128,7 @@ class Utils {
 		await this.create_empty("logs/errors.log", this.config.logerr_path, "");
 
 		await this.create_empty("databases/fdf.db", this.config.fdfdatabase_path, "");
+		await this.create_empty("databases/fdfc.db", this.config.fdfdatabase_path, "");
 		await this.create_empty("databases/logs.db", this.config.logdb_path, "");
 	}
 
@@ -150,7 +151,7 @@ class Utils {
 		if (this.config.log.screenshot) {
 			try {
 				await this.bot.screenshot({path: `${this.config.screenshot_path + this.config.instagram_username}_${func}_${name}.jpg`});
-				this.log.info("Cheese! Screenshot!");
+				this.log.debug("Cheese! Screenshot!");
 			} catch (err) {
 				this.log.error(`screenshot: error ${err}`);
 			}
@@ -181,7 +182,7 @@ class Utils {
 		try {
 			pages = (await this.browser.pages()).map(t => t.url());
 		} catch (err) {
-			this.log.info("Bye bye! Shutdown... wait ~30sec for the bot stopping...");
+			this.log.debug("Bye bye! Shutdown... wait ~30sec for the bot stopping...");
 			return false;
 		}
 
@@ -189,7 +190,7 @@ class Utils {
 			return true;
 		} else {
 
-			this.log.info("Bye bye! Shutdown... wait ~30sec for the bot stopping...");
+			this.log.debug("Bye bye! Shutdown... wait ~30sec for the bot stopping...");
 		}
 
 		return false;
