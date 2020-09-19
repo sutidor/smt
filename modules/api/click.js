@@ -95,7 +95,7 @@ class Click {
 		} else if (typeof response.warning !== "undefined") {
 			this.log.warning(tag, `${response.warning}`);
 			this.log.docs("api", tag);
-			this.log.stackoverflow(tag, "puppeteer", response.warning);
+			this.log.stackoverflow(tag, "puppeteer", response.warning); 
 		}
 
 		return response;

@@ -10,7 +10,7 @@
  */
 const Low = require("lowdb");
 const Low_sync = require("lowdb/adapters/FileSync");
-const uuid = require("uuid/v4");
+const uuid = require('uuid').v4;
 const Log = require("./../logger/log");
 const Translate = require("./../commons/translate");
 const Utils = require("./../commons/utils");
